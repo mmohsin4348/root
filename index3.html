@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Generate QR Code</h1>
+        <p>Enter your Text/URL here:</p>
+        <div class="box">
+            <input type="text" id="text" placeholder="Paste URL">
+        </div>
+        <div class="ik">
+            <img src="" alt="" id="img" onload="this.style.display='block'">
+        </div>
+        <div class="btn">
+            <input type="button" value="Generate" id="button" onclick="makeqr()">
+        </div>
+    </div>
+    
+<!-- JAVA Script is starting here -->
+
+    <script>
+        let qrimg=document.getElementById("img");
+        let qrbtn=document.getElementById("button");
+
+        qrimg.style.display="none";
+        function makeqr(){
+            let txt=document.getElementById("text").value;
+            if(txt.length!==0){
+                qrimg.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+txt;
+            }
+            else{
+                window.alert("Please enter some text");
+            }
+        }
+    </script>
+</body>
+</html>
